@@ -11,7 +11,7 @@ from difflib import get_close_matches
 
 mydata = json.load(open("data.json"))
 word = input("Enter word : ").lower()
-guesses = get_close_matches(word, mydata.keys()) #list
+guesses = get_close_matches(word, mydata.keys(), cutoff = 0.5) #list
 
 # Returns a generator about which I am unaware of
 # print(mydata.values() for word in mydata.keys()) 
