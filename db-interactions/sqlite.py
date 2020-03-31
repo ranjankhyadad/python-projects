@@ -26,13 +26,15 @@ def update(price, quantity,item):
     con = sqlite3.connect ("lite.db")
     cur = con.cursor()
     cur.execute("UPDATE inventory SET price = ?, quantity = ? WHERE item = ?",(price, quantity, item))
+    # ? ==> % 
     con.commit()
     con.close()
 
 def delete(item):
     con = sqlite3.connect ("lite.db")
     cur = con.cursor()
-    cur.execute("DELETE FROM inventory WHERE item = ?", (item,))
+    cur.execute("DELETE FROM inventory WHERE item = ?", (item,)) 
+    #comma required, else the number ofarguments is taken as 10
     con.commit()
     con.close()        
 
